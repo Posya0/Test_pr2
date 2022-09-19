@@ -10,6 +10,9 @@ def lcs_length():
         for j in range(len(t)):
             if s[i] == t[j]:
                 dp[i, j] = dp[i - 1, j] + 1
+            else:
+                dp[i, j] = max(dp[i, j - 1], dp[i - 1, j])
     return max(dp.values()) if dp else 1
+
 
 print(lcs_length())
